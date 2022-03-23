@@ -1,0 +1,215 @@
+@import url("https://fonts.googleapis.com/css2?family=Secular+One&display=swap");
+@import url("https://fonts.googleapis.com/css2?family=Fredoka&display=swap");
+@import url("https://fonts.googleapis.com/css2?family=Pacifico&display=swap");
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+  text-transform: uppercase;
+}
+.table_bg {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  max-width: 50rem;
+  /* height: fit-content; */
+  margin: 0rem auto;
+  background-image: url("BG.png");
+  background-size: cover;
+}
+body {
+  background-color: rgb(31, 31, 31);
+}
+table {
+  border-collapse: collapse;
+  color: white;
+  overflow: hidden;
+  padding: 1rem;
+  /* box-shadow: 2px 3px 3px -1px rgb(29, 29, 29); */
+}
+tbody tr {
+  background-color: rgb(236, 236, 236);
+}
+thead tr th {
+  padding: 0.1rem 0.7rem;
+  color: black;
+  /* font-size: 1rem; */
+  font-family: "Fredoka", sans-serif;
+}
+td {
+  text-align: center;
+  padding: 0.4rem;
+  /* font-size: 1rem; */
+  font-family: "Secular One", sans-serif;
+  color: black;
+  border: solid rgb(46, 46, 46) 2px;
+  border-left: none;
+  border-right: none;
+  border-top: none;
+}
+.teams {
+  text-align: left;
+  padding-left: 0.5rem;
+  width: 15rem;
+}
+#bird {
+  width: 25px;
+  position: relative;
+  top: 2px;
+}
+.ranks {
+  border: none;
+  background-color: rgb(39, 39, 39);
+  color: white;
+  box-shadow: 2px 0px 5px -1px rgb(36, 36, 36);
+}
+/* thead {
+  display: table-header-group;
+} */
+.headings {
+  background-color: #ff8e25;
+  border-bottom: solid 2px black;
+}
+.title {
+  color: white;
+  font-size: 2rem;
+  font-family: "Secular One", sans-serif;
+  letter-spacing: 0.2rem;
+  text-shadow: 2px 1.5px 0px black, 3.4px 2.5px 0px orangered;
+  padding-bottom: 0.6rem;
+  padding-top: 0;
+  background-color: none;
+}
+.stitle {
+  color: white;
+  font-size: 1.2rem;
+  font-family: "Secular One", sans-serif;
+  letter-spacing: 0.2rem;
+  padding-top: 0.6rem;
+  background-color: none;
+  position: relative;
+  top: 0.7rem;
+  text-shadow: 2px 1.5px 0px black, 2.8px 2.3px 0px orangered;
+}
+.footer {
+  color: white;
+  font-family: "Pacifico", cursive;
+  padding: 0.3rem;
+  text-transform: none;
+}
+table {
+  overflow-x: auto;
+}
+.restable {
+  display: flex;
+  flex-wrap: wrap;
+}
+.btn {
+  box-sizing: border-box;
+  -webkit-appearance: none;
+  -moz-appearance: none;
+  appearance: none;
+  background-color: transparent;
+  border: 2px solid #e74c3c;
+  border-radius: 0.6em;
+  color: #e74c3c;
+  cursor: pointer;
+  display: -webkit-box;
+  display: -webkit-flex;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-align-self: center;
+  -ms-flex-item-align: center;
+  align-self: center;
+  font-size: 0.5rem;
+  font-weight: 400;
+  line-height: 1;
+  margin: 20px;
+  padding: 1em 3.5em;
+  text-decoration: none;
+  text-align: center;
+  text-transform: uppercase;
+  font-family: "Montserrat", sans-serif;
+  font-weight: 700;
+}
+.btn:hover,
+.btn:focus {
+  color: rgb(0, 0, 0);
+  outline: 0;
+}
+
+.btn4 {
+  border-color: #f1c40f;
+  color: rgb(0, 0, 0);
+  background-image: -webkit-linear-gradient(
+    45deg,
+    #f1c40f 50%,
+    transparent 50%
+  );
+  background-image: linear-gradient(45deg, #f1c40f 50%, transparent 50%);
+  background-position: 100%;
+  background-size: 400%;
+  -webkit-transition: background 300ms ease-in-out;
+  transition: background 300ms ease-in-out;
+}
+.btn4:hover {
+  background-position: 0;
+}
+form {
+  margin: 2em 0;
+}
+/**
+* Make the field a flex-container, reverse the order so label is on top.
+*/
+
+.field {
+  display: flex;
+  flex-flow: column-reverse;
+  margin-bottom: 1em;
+}
+.titlediv {
+  display: flex;
+  flex-direction: column;
+}
+.titlediv label {
+  padding: 0.2rem 0rem;
+}
+.pointsdiv {
+  display: flex;
+  flex-direction: column;
+}
+.pointsdiv label {
+  padding: 0.2rem 0rem;
+}
+.inputsdiv {
+  display: flex;
+  flex-direction: row;
+}
+.inputsdiv div {
+  padding: 1rem;
+}
+.formbox {
+  display: flex;
+  flex-direction: column;
+  /* height: 2rem; */
+  margin-top: 1rem;
+  justify-content: center;
+  align-items: center;
+  font-family: "Montserrat", sans-serif;
+  font-weight: 700;
+}
+.btn {
+  margin: 0.5rem auto;
+}
+@media (max-width: 450px) {
+  .inputsdiv {
+    flex-direction: column;
+  }
+  .headings th {
+    font-size: 0.8rem;
+  }
+  td {
+    font-size: 0.8rem;
+  }
+}

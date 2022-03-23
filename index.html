@@ -1,0 +1,201 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Leadeom</title>
+    <link rel="stylesheet" href="Style.css">
+    <script src="https://html2canvas.hertzen.com/dist/html2canvas.js"></script>
+    <script type="text/javascript">
+
+        function downloadimage() {
+            var container = document.getElementById("downlb"); //specific element on page
+            // var container = document.getElementById("htmltoimage");; // full page 
+            html2canvas(container, { allowTaint: true }).then(function (canvas) {
+
+                var link = document.createElement("a");
+                document.body.appendChild(link);
+                link.download = "Leaderboard.jpg";
+                link.href = canvas.toDataURL();
+                link.target = '_blank';
+                link.click();
+            });
+        }
+
+    </script>
+</head>
+
+<body>
+    <form action="">
+
+        <div class="formbox">
+            <div class="inputsdiv">
+                <div class="titlediv">
+
+                    <label for="HeadinT">SubTitle </label>
+                    <input type="text" id="Subtitle" placeholder="Enter Subtile Here">
+                    <label for="HeadinS">Title</label>
+                    <input type="text" id="Title" placeholder="Enter Title Here">
+                </div>
+                <div class="pointsdiv">
+
+                    <label for="ptss">Points Here</label>
+                    <textarea name="message" id="pts" cols="30" rows="4" placeholder="Enter Points Here"></textarea>
+                </div>
+            </div>
+            <button class="btn btn4" type="button" id="ptbtn" onclick="changeTitles()">Click
+                Here</button>
+        </div>
+    </form>
+    <div class="table_bg" id="downlb">
+        <div class="restable">
+            <table>
+                <thead>
+                    <tr>
+                        <th scope="col" colspan="6" class="stitle" id="uptitle">YOUR NAME HERE</th>
+                    </tr>
+                    <tr>
+                        <th scope="col" colspan="6" class="title" id="downtitle">MAIN TITLE HERE</th>
+                    </tr>
+                    <tr class="headings">
+                        <th class="ranking">#</th>
+                        <th>Team Name</th>
+                        <th><img src="wwcd.svg" alt="WWCD" id="bird"></th>
+                        <th>Pos.</th>
+                        <th>Kills</th>
+                        <th>Total</th>
+                    </tr>
+                </thead>
+                <tbody id="myTable">
+                    <!-- <tr>
+                        <td class="ranks">1</td>
+                        <td class="teams">Team 1</td>
+                        <td>1</td>
+                        <td>15</td>
+                        <td>5</td>
+                        <td>20</td>
+                    </tr>
+                    <tr>
+                        <td class="ranks">2</td>
+                        <td class="teams">Team 2</td>
+                        <td>0</td>
+                        <td>10</td>
+                        <td>5</td>
+                        <td>15</td>
+                    </tr>
+                    <tr>
+                        <td class="ranks">3</td>
+                        <td class="teams">Team 3</td>
+                        <td>0</td>
+                        <td>9</td>
+                        <td>4</td>
+                        <td>13</td>
+                    </tr>
+                    <tr>
+                        <td class="ranks">4</td>
+                        <td class="teams">Team 4</td>
+                        <td>0</td>
+                        <td>9</td>
+                        <td>4</td>
+                        <td>13</td>
+                    </tr>
+                    <tr>
+                        <td class="ranks">5</td>
+                        <td class="teams">Team 5</td>
+                        <td>0</td>
+                        <td>9</td>
+                        <td>4</td>
+                        <td>13</td>
+                    </tr> -->
+                    <!-- <tr>
+                        <td class="ranks">6</td>
+                        <td class="teams">Team 6</td>
+                        <td>0</td>
+                        <td>9</td>
+                        <td>4</td>
+                        <td>13</td>
+                    </tr>
+                    <tr>
+                        <td class="ranks">7</td>
+                        <td class="teams">Team 7</td>
+                        <td>0</td>
+                        <td>9</td>
+                        <td>4</td>
+                        <td>13</td>
+                    </tr> -->
+                </tbody>
+            </table>
+        </div>
+        <div class="footer">
+            Made By Someone...
+        </div>
+    </div>
+    <button class="btn btn4" type="button" onclick="downloadimage()" value="Click Here To Download">Click Here To
+        Download</button>
+</body>
+<script>
+    let Points = []
+    const addPoints = (ev) => {
+        let datas = document.getElementById('pts').value;
+        let spliteddatas = datas.split('\n');
+        let splitedteam = spliteddatas[0].split(',');
+        let splitedwwcd = spliteddatas[1].split(',');
+        let splitedpos = spliteddatas[2].split(',');
+        let splitedkills = spliteddatas[3].split(',');
+        let splitedtotal = spliteddatas[4].split(',');
+        for (var i = 0; i < splitedteam.length; i++) {
+            let point = {
+                // rank: '6',
+                name: splitedteam[i],
+                wwcd: splitedwwcd[i],
+                pos: splitedpos[i],
+                kills: splitedkills[i],
+                total: splitedtotal[i],
+            }
+            Points.push(point);
+        }
+
+        buildTable(Points);
+    }
+
+    document.addEventListener('DOMContentLoaded', () => {
+        document.getElementById('ptbtn').addEventListener('click', addPoints)
+    })
+    document.write(Points)
+
+
+    function buildTable(data) {
+        var table = document.getElementById('myTable')
+        rankings = []
+        for (var no = 1; no < data.length + 1; no++) {
+            rankings.push(no)
+        }
+        for (var i = 0; i < data.length; i++) {
+            var no = 1
+            var row = `<tr>
+                <td class="ranks">${rankings[i]}</td>
+                <td class="teams">${data[i].name}</td>
+                <td>${data[i].wwcd}</td>
+                <td>${data[i].pos}</td>
+                <td>${data[i].kills}</td>
+                <td>${data[i].total}</td>
+                </tr>`
+            no++
+            table.innerHTML += row
+            // let data = []
+
+
+        }
+        document.forms[0].reset();
+    }
+    function changeTitles() {
+        document.getElementById('uptitle').innerHTML = document.getElementById('Subtitle').value;
+        document.getElementById('downtitle').innerHTML = document.getElementById('Title').value;
+        // document.getElementById('downtitle').innerHTML = getElementById('Title').value;
+    }
+
+</script>
+
+</html>
