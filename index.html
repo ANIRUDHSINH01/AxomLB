@@ -13,7 +13,11 @@
         function downloadimage() {
             var container = document.getElementById("downlb"); //specific element on page
             // var container = document.getElementById("htmltoimage");; // full page 
-            html2canvas(container, { allowTaint: true }).then(function (canvas) {
+            html2canvas(container, {
+                allowTaint: true,
+                windowWidth: 1920,
+                windowHeight: 1080
+            }).then(function (canvas) {
 
                 var link = document.createElement("a");
                 document.body.appendChild(link);
