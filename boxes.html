@@ -17,12 +17,18 @@
 
         .lefthold {
             display: grid;
+            grid-template-rows: 1fr 1fr 1fr;
+            grid-template-columns: 1fr 1fr 1fr;
             row-gap: 0.2rem;
         }
 
         .boxes {
             border: 2px solid red;
             width: 18rem;
+        }
+
+        #box3 {
+            grid-row: span 2;
         }
     </style>
 </head>
