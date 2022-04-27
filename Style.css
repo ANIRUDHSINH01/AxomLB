@@ -222,6 +222,11 @@ form {
 /* .table_bg{
   border: 2px solid red;
 } */
+@media (min-width: 1880px) {
+  .table_bg {
+    max-width: 62%;
+  }
+}
 @media (max-width: 1192px) {
   .table_bg{
     max-width: 100%;
@@ -263,6 +268,108 @@ form {
   font-weight: 700;
   color: white;
   text-shadow: 2px 1.5px 0px black,
-  3.4px 2.5px 0px orangered;
+  3.4px 2.5px 0px rgb(255, 123, 0);
   padding-bottom: 0.6rem;
+  text-align: center;
+  letter-spacing: 0.2rem;
+}
+.subtitle{
+  font-size: 2.5rem;
+  font-family: "Secular One",sans-serif;
+  font-weight: 700;
+  color: white;
+  text-shadow: 2px 1.5px 0px black,
+  3.4px 2.5px 0px rgb(255, 123, 0);
+  /* padding-bottom: 0.6rem; */
+  text-align: center;
+  position: relative;
+  top: 1rem;
+  letter-spacing: 0.2rem;
+}
+.leftheadcontainer{
+  background-color: rgb(255, 153, 0);
+  margin-bottom: 0.2rem;
+  height: 2rem;
+  width: 100%;
+  display: grid;
+  grid-template-columns: 3rem 4fr repeat(3,1fr) 1.1fr;
+  align-items: center;
+  font-size: 0.9rem;
+  font-family: "Secular One",
+  sans-serif;
+  text-align: center;
+}
+.leftcontainer{
+  display: grid;
+  grid-template-columns: 0fr repeat(4, 1fr);
+  grid-template-rows: 0fr repeat(4, 1fr);
+  grid-column-gap: 0px;
+  grid-row-gap: 0px;
+}
+.leftheadcontainer{
+  grid-area: 1 / 1 / 2 / 6;
+}
+.leftrankcontainer{
+  grid-area: 2 / 1 / 6 / 2;
+}
+.leftholdcontainer{
+  grid-area: 2 / 2 / 6 / 6;
+}
+.leftheadbox img{
+  width: 25px;
+}
+.rightheadcontainer{
+  background-color: rgb(255, 153, 0);
+  margin-bottom: 0.2rem;
+  height: 2rem;
+  width: 100%;
+  display: grid;
+  grid-template-columns: 3rem 4fr repeat(3,1fr) 1.1fr;
+  align-items: center;
+  font-size: 0.9rem;
+  font-family: "Secular One",
+  sans-serif;
+  text-align: center;
+}
+.rightcontainer{
+  display: grid;
+  grid-template-columns: 0fr repeat(4, 1fr);
+  grid-template-rows: 0fr repeat(4, 1fr);
+  grid-column-gap: 0px;
+  grid-row-gap: 0px;
+}
+.rightheadcontainer{
+  grid-area: 1 / 1 / 2 / 6;
+}
+.rightrankcontainer{
+  grid-area: 2 / 1 / 6 / 2;
+  /* box-shadow: 10px 0px 16px -13px rgba(0, 0, 0, 1); */
+}
+.rightholdcontainer{
+  grid-area: 2 / 2 / 6 / 6;
+}
+.rightheadbox img{
+  width: 25px;
+}
+#leftheadwwcd{
+  display: flex;
+  justify-content: center;
+}
+#rightheadwwcd{
+  display: flex;
+  justify-content: center;
+}
+#leftheadhash{
+  font-size: 1.3rem;
+}
+#rightheadhash{
+  font-size: 1.3rem;
+}
+.rightheadbox{
+  align-self: center;
+  justify-self: center;
+}
+.leftheadbox{
+  align-self: center;
+  justify-self: center;
 }
