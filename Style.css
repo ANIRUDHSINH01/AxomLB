@@ -12,8 +12,8 @@
   flex-direction: column;
   justify-content: center;
   align-items: center;
-  max-width: 80%;
-  max-height: 100%;
+  max-width: 1920px;
+  max-height: 1080px;
   /* height: fit-content; */
   margin: 0rem auto;
   background-image: url("BG.png");
@@ -219,13 +219,10 @@ form {
   /* border: 2px solid red; */
   justify-content: space-between;
 }
-/* .table_bg{
+.table_bg{
   border: 2px solid red;
-} */
+}
 @media (max-width: 1192px) {
-  .table_bg{
-    max-width: 100%;
-  }
   .restable{
     justify-content: space-between;
     width: 50rem;
@@ -238,9 +235,6 @@ form {
   }
 }
 @media (max-width: 900px) {
-  .table_bg{
-    max-width: 100%;
-  }
   .inputsdiv {
     flex-direction: column;
   }
@@ -261,38 +255,4 @@ form {
   .rightcontainer{
     padding-top: 5px;
   }
-}
-.title{
-  font-size: 3.5rem;
-  font-family: "Secular One",sans-serif;
-  font-weight: 700;
-  color: white;
-  text-shadow: 2px 1.5px 0px black,
-  3.4px 2.5px 0px orangered;
-  padding-bottom: 0.6rem;
-}
-#wwcdhead{
-  display: flex;
-}
-.lefthead img{
-  /* margin: auto; */
-  width: 27px;
-}
-.leftheadcontainer{
-  grid-template-columns: 1fr 4fr 1fr 1fr 1fr 1.1fr;
-}
-.leftcontainer{
-  display: grid;
-  grid-template-columns: auto 1fr;
-  grid-template-rows: auto;
-}
-.leftrankcontainer{
-  grid-column-start: 1;
-  grid-row-end: span 2;
-}
-.leftheadcontainer{
-  grid-column-start: span 3;
-}
-.leftholdcontainer{
-
 }
