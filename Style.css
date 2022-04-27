@@ -31,6 +31,9 @@
   font-family: "Pacifico", cursive;
   padding: 0.3rem;
   text-transform: none;
+  width: 100%;
+  text-shadow: 2px 1.5px 0px black;
+  text-align: center;
 }
 .restable {
   display: flex;
