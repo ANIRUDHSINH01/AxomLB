@@ -15,8 +15,8 @@
             // var container = document.getElementById("htmltoimage");; // full page 
             html2canvas(container, {
                 allowTaint: true,
-                windowWidth: 1920,
-                windowHeight: 1080
+                windowWidth: 920,
+                windowHeight: 550
             }).then(function (canvas) {
 
                 var link = document.createElement("a");
@@ -51,12 +51,19 @@
             </div>
             <button class="btn btn4" type="button" id="ptbtn" onclick="changeTitles()">Click
                 Here</button>
+            <button class="btn btn4" type="button" onclick="downloadimage()" value="Click Here To Download">Click Here
+                To
+                Download</button>
         </div>
     </form>
     <div class="table_bg" id="downlb">
+        <div>
+            <h2 class="title">
+                TITLE HERE
+            </h2>
+        </div>
         <div class="restable">
             <div class="rightcontainer">
-
                 <div class="rightrankcontainer">
                     <div class="textboxes ranksbox" id="rank1">
                         1
@@ -92,476 +99,408 @@
                 <div class="rightholdcontainer">
                     <div class="rightpointboxes" id="rightpointbox1">
 
-                        <div class="leftcontainer">
-                            <div class="leftpointboxes leftheadcontainer" id="leftpointboxhead">
-
-                                <div class="textboxes teamnamesbox lefthead">
-                                    #
-                                </div>
-                                <div class="textboxes teamnamesbox lefthead">
-                                    TEAMNAMES
-                                </div>
-                                <div class="textboxes lefthead" id="wwcdhead">
-                                    <img src="wwcd.svg" alt="WWCD">
-                                </div>
-                                <div class="textboxes lefthead" id="pos1">
-                                    POS
-                                </div>
-                                <div class="textboxes lefthead" id="kill1">
-                                    KILLS
-                                </div>
-                                <div class="textboxes lefthead" id="total1">
-                                    TOTAL
-                                </div>
-                            </div>
-
-                            <div class="leftrankcontainer">
-                                <div class="textboxes ranksbox" id="rank1">
-                                    #
-                                </div>
-                                <div class="textboxes ranksbox" id="rank1">
-                                    1
-                                </div>
-                                <div class="textboxes ranksbox" id="rank1">
-                                    2
-                                </div>
-                                <div class="textboxes ranksbox" id="rank1">
-                                    3
-                                </div>
-                                <div class="textboxes ranksbox" id="rank1">
-                                    4
-                                </div>
-                                <div class="textboxes ranksbox" id="rank1">
-                                    5
-                                </div>
-                                <div class="textboxes ranksbox" id="rank1">
-                                    6
-                                </div>
-                                <div class="textboxes ranksbox" id="rank1">
-                                    7
-                                </div>
-                                <div class="textboxes ranksbox" id="rank1">
-                                    8
-                                </div>
-                                <div class="textboxes ranksbox" id="rank1">
-                                    9
-                                </div>
-                                <div class="textboxes ranksbox" id="rank1">
-                                    10
-                                </div>
-                            </div>
-                            <div class="leftholdcontainer">
-                                <div class="leftpointboxes" id="leftpointbox1">
-
-                                    <div class="textboxes teamnamesbox" id="teamname1">
-                                        LEFT LONG TEAM NAME
-                                    </div>
-                                    <div class="textboxes" id="wwcd1">
-                                        1
-                                    </div>
-                                    <div class="textboxes" id="pos1">
-                                        15
-                                    </div>
-                                    <div class="textboxes" id="kill1">
-                                        15
-                                    </div>
-                                    <div class="textboxes" id="total1">
-                                        30
-                                    </div>
-                                </div>
-                                <div class="leftpointboxes" id="leftpointbox2">
-
-                                    <div class="textboxes teamnamesbox" id="teamname1">
-                                        LONG TEAM NAME
-                                    </div>
-                                    <div class="textboxes" id="wwcd1">
-                                        1
-                                    </div>
-                                    <div class="textboxes" id="pos1">
-                                        15
-                                    </div>
-                                    <div class="textboxes" id="kill1">
-                                        15
-                                    </div>
-                                    <div class="textboxes" id="total1">
-                                        30
-                                    </div>
-                                </div>
-                                <div class="leftpointboxes" id="leftpointbox3">
-
-                                    <div class="textboxes teamnamesbox" id="teamname1">
-                                        LONG TEAM NAME
-                                    </div>
-                                    <div class="textboxes" id="wwcd1">
-                                        0
-                                    </div>
-                                    <div class="textboxes" id="pos1">
-                                        15
-                                    </div>
-                                    <div class="textboxes" id="kill1">
-                                        15
-                                    </div>
-                                    <div class="textboxes" id="total1">
-                                        30
-                                    </div>
-                                </div>
-                                <div class="leftpointboxes" id="leftpointbox4">
-
-                                    <div class="textboxes teamnamesbox" id="teamname1">
-                                        LONG TEAM NAME
-                                    </div>
-                                    <div class="textboxes" id="wwcd1">
-                                        1
-                                    </div>
-                                    <div class="textboxes" id="pos1">
-                                        15
-                                    </div>
-                                    <div class="textboxes" id="kill1">
-                                        15
-                                    </div>
-                                    <div class="textboxes" id="total1">
-                                        30
-                                    </div>
-                                </div>
-                                <div class="leftpointboxes" id="leftpointbox5">
-
-                                    <div class="textboxes teamnamesbox" id="teamname1">
-                                        LONG TEAM NAME
-                                    </div>
-                                    <div class="textboxes" id="wwcd1">
-                                        1
-                                    </div>
-                                    <div class="textboxes" id="pos1">
-                                        15
-                                    </div>
-                                    <div class="textboxes" id="kill1">
-                                        15
-                                    </div>
-                                    <div class="textboxes" id="total1">
-                                        30
-                                    </div>
-                                </div>
-                                <div class="leftpointboxes" id="leftpointbox6">
-
-                                    <div class="textboxes teamnamesbox" id="teamname1">
-                                        LONG TEAM NAME
-                                    </div>
-                                    <div class="textboxes" id="wwcd1">
-                                        1
-                                    </div>
-                                    <div class="textboxes" id="pos1">
-                                        15
-                                    </div>
-                                    <div class="textboxes" id="kill1">
-                                        15
-                                    </div>
-                                    <div class="textboxes" id="total1">
-                                        30
-                                    </div>
-                                </div>
-                                <div class="leftpointboxes" id="leftpointbox7">
-
-                                    <div class="textboxes teamnamesbox" id="teamname1">
-                                        LONG TEAM NAME
-                                    </div>
-                                    <div class="textboxes" id="wwcd1">
-                                        1
-                                    </div>
-                                    <div class="textboxes" id="pos1">
-                                        15
-                                    </div>
-                                    <div class="textboxes" id="kill1">
-                                        15
-                                    </div>
-                                    <div class="textboxes" id="total1">
-                                        30
-                                    </div>
-                                </div>
-                                <div class="leftpointboxes" id="leftpointbox8">
-
-                                    <div class="textboxes teamnamesbox" id="teamname1">
-                                        LONG TEAM NAME
-                                    </div>
-                                    <div class="textboxes" id="wwcd1">
-                                        1
-                                    </div>
-                                    <div class="textboxes" id="pos1">
-                                        15
-                                    </div>
-                                    <div class="textboxes" id="kill1">
-                                        15
-                                    </div>
-                                    <div class="textboxes" id="total1">
-                                        30
-                                    </div>
-                                </div>
-                                <div class="leftpointboxes" id="leftpointbox9">
-
-                                    <div class="textboxes teamnamesbox" id="teamname1">
-                                        LONG TEAM NAME
-                                    </div>
-                                    <div class="textboxes" id="wwcd1">
-                                        1
-                                    </div>
-                                    <div class="textboxes" id="pos1">
-                                        15
-                                    </div>
-                                    <div class="textboxes" id="kill1">
-                                        15
-                                    </div>
-                                    <div class="textboxes" id="total1">
-                                        30
-                                    </div>
-                                </div>
-                                <div class="leftpointboxes" id="leftpointbox10">
-
-                                    <div class="textboxes teamnamesbox" id="teamname1">
-                                        LONG TEAM NAME
-                                    </div>
-                                    <div class="textboxes" id="wwcd1">
-                                        1
-                                    </div>
-                                    <div class="textboxes" id="pos1">
-                                        15
-                                    </div>
-                                    <div class="textboxes" id="kill1">
-                                        15
-                                    </div>
-                                    <div class="textboxes" id="total1">
-                                        30
-                                    </div>
-                                </div>
-                            </div>
+                        <div class="textboxes teamnamesbox" id="teamname1">
+                            LONG TEAM NAME
                         </div>
-                        <div class="rightcontainer">
-                            <div class="rightrankcontainer">
-                                <div class="textboxes ranksbox" id="rank1">
-                                    11
-                                </div>
-                                <div class="textboxes ranksbox" id="rank1">
-                                    12
-                                </div>
-                                <div class="textboxes ranksbox" id="rank1">
-                                    13
-                                </div>
-                                <div class="textboxes ranksbox" id="rank1">
-                                    14
-                                </div>
-                                <div class="textboxes ranksbox" id="rank1">
-                                    15
-                                </div>
-                                <div class="textboxes ranksbox" id="rank1">
-                                    16
-                                </div>
-                                <div class="textboxes ranksbox" id="rank1">
-                                    17
-                                </div>
-                                <div class="textboxes ranksbox" id="rank1">
-                                    18
-                                </div>
-                                <div class="textboxes ranksbox" id="rank1">
-                                    19
-                                </div>
-                                <div class="textboxes ranksbox" id="rank1">
-                                    20
-                                </div>
-                            </div>
-                            <div class="rightholdcontainer">
-                                <div class="rightpointboxes" id="rightpointbox1">
-
-                                    <div class="textboxes teamnamesbox" id="teamname1">
-                                        RIGHT LONG TEAM NAME
-                                    </div>
-                                    <div class="textboxes" id="wwcd1">
-                                        1
-                                    </div>
-                                    <div class="textboxes" id="pos1">
-                                        15
-                                    </div>
-                                    <div class="textboxes" id="kill1">
-                                        15
-                                    </div>
-                                    <div class="textboxes" id="total1">
-                                        30
-                                    </div>
-                                </div>
-                                <div class="rightpointboxes" id="rightpointbox2">
-
-                                    <div class="textboxes teamnamesbox" id="teamname1">
-                                        LONG TEAM NAME
-                                    </div>
-                                    <div class="textboxes" id="wwcd1">
-                                        1
-                                    </div>
-                                    <div class="textboxes" id="pos1">
-                                        15
-                                    </div>
-                                    <div class="textboxes" id="kill1">
-                                        15
-                                    </div>
-                                    <div class="textboxes" id="total1">
-                                        30
-                                    </div>
-                                </div>
-                                <div class="rightpointboxes" id="rightpointbox3">
-
-                                    <div class="textboxes teamnamesbox" id="teamname1">
-                                        LONG TEAM NAME
-                                    </div>
-                                    <div class="textboxes" id="wwcd1">
-                                        0
-                                    </div>
-                                    <div class="textboxes" id="pos1">
-                                        15
-                                    </div>
-                                    <div class="textboxes" id="kill1">
-                                        15
-                                    </div>
-                                    <div class="textboxes" id="total1">
-                                        30
-                                    </div>
-                                </div>
-                                <div class="rightpointboxes" id="rightpointbox4">
-
-                                    <div class="textboxes teamnamesbox" id="teamname1">
-                                        LONG TEAM NAME
-                                    </div>
-                                    <div class="textboxes" id="wwcd1">
-                                        1
-                                    </div>
-                                    <div class="textboxes" id="pos1">
-                                        15
-                                    </div>
-                                    <div class="textboxes" id="kill1">
-                                        15
-                                    </div>
-                                    <div class="textboxes" id="total1">
-                                        30
-                                    </div>
-                                </div>
-                                <div class="rightpointboxes" id="rightpointbox5">
-
-                                    <div class="textboxes teamnamesbox" id="teamname1">
-                                        LONG TEAM NAME
-                                    </div>
-                                    <div class="textboxes" id="wwcd1">
-                                        1
-                                    </div>
-                                    <div class="textboxes" id="pos1">
-                                        15
-                                    </div>
-                                    <div class="textboxes" id="kill1">
-                                        15
-                                    </div>
-                                    <div class="textboxes" id="total1">
-                                        30
-                                    </div>
-                                </div>
-                                <div class="rightpointboxes" id="rightpointbox6">
-
-                                    <div class="textboxes teamnamesbox" id="teamname1">
-                                        LONG TEAM NAME
-                                    </div>
-                                    <div class="textboxes" id="wwcd1">
-                                        1
-                                    </div>
-                                    <div class="textboxes" id="pos1">
-                                        15
-                                    </div>
-                                    <div class="textboxes" id="kill1">
-                                        15
-                                    </div>
-                                    <div class="textboxes" id="total1">
-                                        30
-                                    </div>
-                                </div>
-                                <div class="rightpointboxes" id="rightpointbox7">
-
-                                    <div class="textboxes teamnamesbox" id="teamname1">
-                                        LONG TEAM NAME
-                                    </div>
-                                    <div class="textboxes" id="wwcd1">
-                                        1
-                                    </div>
-                                    <div class="textboxes" id="pos1">
-                                        15
-                                    </div>
-                                    <div class="textboxes" id="kill1">
-                                        15
-                                    </div>
-                                    <div class="textboxes" id="total1">
-                                        30
-                                    </div>
-                                </div>
-                                <div class="rightpointboxes" id="rightpointbox8">
-
-                                    <div class="textboxes teamnamesbox" id="teamname1">
-                                        LONG TEAM NAME
-                                    </div>
-                                    <div class="textboxes" id="wwcd1">
-                                        1
-                                    </div>
-                                    <div class="textboxes" id="pos1">
-                                        15
-                                    </div>
-                                    <div class="textboxes" id="kill1">
-                                        15
-                                    </div>
-                                    <div class="textboxes" id="total1">
-                                        30
-                                    </div>
-                                </div>
-                                <div class="rightpointboxes" id="rightpointbox9">
-
-                                    <div class="textboxes teamnamesbox" id="teamname1">
-                                        LONG TEAM NAME
-                                    </div>
-                                    <div class="textboxes" id="wwcd1">
-                                        1
-                                    </div>
-                                    <div class="textboxes" id="pos1">
-                                        15
-                                    </div>
-                                    <div class="textboxes" id="kill1">
-                                        15
-                                    </div>
-                                    <div class="textboxes" id="total1">
-                                        30
-                                    </div>
-                                </div>
-                                <div class="rightpointboxes" id="rightpointbox10">
-
-                                    <div class="textboxes teamnamesbox" id="teamname1">
-                                        LONG TEAM NAME
-                                    </div>
-                                    <div class="textboxes" id="wwcd1">
-                                        1
-                                    </div>
-                                    <div class="textboxes" id="pos1">
-                                        15
-                                    </div>
-                                    <div class="textboxes" id="kill1">
-                                        15
-                                    </div>
-                                    <div class="textboxes" id="total1">
-                                        30
-                                    </div>
-                                </div>
-                            </div>
+                        <div class="textboxes" id="wwcd1">
+                            1
                         </div>
-                        <!-- <div class="footer">
+                        <div class="textboxes" id="pos1">
+                            15
+                        </div>
+                        <div class="textboxes" id="kill1">
+                            15
+                        </div>
+                        <div class="textboxes" id="total1">
+                            30
+                        </div>
+                    </div>
+                    <div class="rightpointboxes" id="rightpointbox2">
+
+                        <div class="textboxes teamnamesbox" id="teamname1">
+                            LONG TEAM NAME
+                        </div>
+                        <div class="textboxes" id="wwcd1">
+                            1
+                        </div>
+                        <div class="textboxes" id="pos1">
+                            15
+                        </div>
+                        <div class="textboxes" id="kill1">
+                            15
+                        </div>
+                        <div class="textboxes" id="total1">
+                            30
+                        </div>
+                    </div>
+                    <div class="rightpointboxes" id="rightpointbox3">
+
+                        <div class="textboxes teamnamesbox" id="teamname1">
+                            LONG TEAM NAME
+                        </div>
+                        <div class="textboxes" id="wwcd1">
+                            0
+                        </div>
+                        <div class="textboxes" id="pos1">
+                            15
+                        </div>
+                        <div class="textboxes" id="kill1">
+                            15
+                        </div>
+                        <div class="textboxes" id="total1">
+                            30
+                        </div>
+                    </div>
+                    <div class="rightpointboxes" id="rightpointbox4">
+
+                        <div class="textboxes teamnamesbox" id="teamname1">
+                            LONG TEAM NAME
+                        </div>
+                        <div class="textboxes" id="wwcd1">
+                            1
+                        </div>
+                        <div class="textboxes" id="pos1">
+                            15
+                        </div>
+                        <div class="textboxes" id="kill1">
+                            15
+                        </div>
+                        <div class="textboxes" id="total1">
+                            30
+                        </div>
+                    </div>
+                    <div class="rightpointboxes" id="rightpointbox5">
+
+                        <div class="textboxes teamnamesbox" id="teamname1">
+                            LONG TEAM NAME
+                        </div>
+                        <div class="textboxes" id="wwcd1">
+                            1
+                        </div>
+                        <div class="textboxes" id="pos1">
+                            15
+                        </div>
+                        <div class="textboxes" id="kill1">
+                            15
+                        </div>
+                        <div class="textboxes" id="total1">
+                            30
+                        </div>
+                    </div>
+                    <div class="rightpointboxes" id="rightpointbox6">
+
+                        <div class="textboxes teamnamesbox" id="teamname1">
+                            LONG TEAM NAME
+                        </div>
+                        <div class="textboxes" id="wwcd1">
+                            1
+                        </div>
+                        <div class="textboxes" id="pos1">
+                            15
+                        </div>
+                        <div class="textboxes" id="kill1">
+                            15
+                        </div>
+                        <div class="textboxes" id="total1">
+                            30
+                        </div>
+                    </div>
+                    <div class="rightpointboxes" id="rightpointbox7">
+
+                        <div class="textboxes teamnamesbox" id="teamname1">
+                            LONG TEAM NAME
+                        </div>
+                        <div class="textboxes" id="wwcd1">
+                            1
+                        </div>
+                        <div class="textboxes" id="pos1">
+                            15
+                        </div>
+                        <div class="textboxes" id="kill1">
+                            15
+                        </div>
+                        <div class="textboxes" id="total1">
+                            30
+                        </div>
+                    </div>
+                    <div class="rightpointboxes" id="rightpointbox8">
+
+                        <div class="textboxes teamnamesbox" id="teamname1">
+                            LONG TEAM NAME
+                        </div>
+                        <div class="textboxes" id="wwcd1">
+                            1
+                        </div>
+                        <div class="textboxes" id="pos1">
+                            15
+                        </div>
+                        <div class="textboxes" id="kill1">
+                            15
+                        </div>
+                        <div class="textboxes" id="total1">
+                            30
+                        </div>
+                    </div>
+                    <div class="rightpointboxes" id="rightpointbox9">
+
+                        <div class="textboxes teamnamesbox" id="teamname1">
+                            LONG TEAM NAME
+                        </div>
+                        <div class="textboxes" id="wwcd1">
+                            1
+                        </div>
+                        <div class="textboxes" id="pos1">
+                            15
+                        </div>
+                        <div class="textboxes" id="kill1">
+                            15
+                        </div>
+                        <div class="textboxes" id="total1">
+                            30
+                        </div>
+                    </div>
+                    <div class="rightpointboxes" id="rightpointbox10">
+
+                        <div class="textboxes teamnamesbox" id="teamname1">
+                            LONG TEAM NAME
+                        </div>
+                        <div class="textboxes" id="wwcd1">
+                            1
+                        </div>
+                        <div class="textboxes" id="pos1">
+                            15
+                        </div>
+                        <div class="textboxes" id="kill1">
+                            15
+                        </div>
+                        <div class="textboxes" id="total1">
+                            30
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <div class="leftcontainer">
+
+                <div class="leftrankcontainer">
+                    <div class="textboxes ranksbox" id="rank1">
+                        1
+                    </div>
+                    <div class="textboxes ranksbox" id="rank1">
+                        2
+                    </div>
+                    <div class="textboxes ranksbox" id="rank1">
+                        3
+                    </div>
+                    <div class="textboxes ranksbox" id="rank1">
+                        4
+                    </div>
+                    <div class="textboxes ranksbox" id="rank1">
+                        5
+                    </div>
+                    <div class="textboxes ranksbox" id="rank1">
+                        6
+                    </div>
+                    <div class="textboxes ranksbox" id="rank1">
+                        7
+                    </div>
+                    <div class="textboxes ranksbox" id="rank1">
+                        8
+                    </div>
+                    <div class="textboxes ranksbox" id="rank1">
+                        9
+                    </div>
+                    <div class="textboxes ranksbox" id="rank1">
+                        10
+                    </div>
+                </div>
+                <div class="leftholdcontainer">
+                    <div class="leftpointboxes" id="leftpointbox1">
+
+                        <div class="textboxes teamnamesbox" id="teamname1">
+                            LEFT LONG TEAM NAME
+                        </div>
+                        <div class="textboxes" id="wwcd1">
+                            1
+                        </div>
+                        <div class="textboxes" id="pos1">
+                            15
+                        </div>
+                        <div class="textboxes" id="kill1">
+                            15
+                        </div>
+                        <div class="textboxes" id="total1">
+                            30
+                        </div>
+                    </div>
+                    <div class="leftpointboxes" id="leftpointbox2">
+
+                        <div class="textboxes teamnamesbox" id="teamname1">
+                            LONG TEAM NAME
+                        </div>
+                        <div class="textboxes" id="wwcd1">
+                            1
+                        </div>
+                        <div class="textboxes" id="pos1">
+                            15
+                        </div>
+                        <div class="textboxes" id="kill1">
+                            15
+                        </div>
+                        <div class="textboxes" id="total1">
+                            30
+                        </div>
+                    </div>
+                    <div class="leftpointboxes" id="leftpointbox3">
+
+                        <div class="textboxes teamnamesbox" id="teamname1">
+                            LONG TEAM NAME
+                        </div>
+                        <div class="textboxes" id="wwcd1">
+                            0
+                        </div>
+                        <div class="textboxes" id="pos1">
+                            15
+                        </div>
+                        <div class="textboxes" id="kill1">
+                            15
+                        </div>
+                        <div class="textboxes" id="total1">
+                            30
+                        </div>
+                    </div>
+                    <div class="leftpointboxes" id="leftpointbox4">
+
+                        <div class="textboxes teamnamesbox" id="teamname1">
+                            LONG TEAM NAME
+                        </div>
+                        <div class="textboxes" id="wwcd1">
+                            1
+                        </div>
+                        <div class="textboxes" id="pos1">
+                            15
+                        </div>
+                        <div class="textboxes" id="kill1">
+                            15
+                        </div>
+                        <div class="textboxes" id="total1">
+                            30
+                        </div>
+                    </div>
+                    <div class="leftpointboxes" id="leftpointbox5">
+
+                        <div class="textboxes teamnamesbox" id="teamname1">
+                            LONG TEAM NAME
+                        </div>
+                        <div class="textboxes" id="wwcd1">
+                            1
+                        </div>
+                        <div class="textboxes" id="pos1">
+                            15
+                        </div>
+                        <div class="textboxes" id="kill1">
+                            15
+                        </div>
+                        <div class="textboxes" id="total1">
+                            30
+                        </div>
+                    </div>
+                    <div class="leftpointboxes" id="leftpointbox6">
+
+                        <div class="textboxes teamnamesbox" id="teamname1">
+                            LONG TEAM NAME
+                        </div>
+                        <div class="textboxes" id="wwcd1">
+                            1
+                        </div>
+                        <div class="textboxes" id="pos1">
+                            15
+                        </div>
+                        <div class="textboxes" id="kill1">
+                            15
+                        </div>
+                        <div class="textboxes" id="total1">
+                            30
+                        </div>
+                    </div>
+                    <div class="leftpointboxes" id="leftpointbox7">
+
+                        <div class="textboxes teamnamesbox" id="teamname1">
+                            LONG TEAM NAME
+                        </div>
+                        <div class="textboxes" id="wwcd1">
+                            1
+                        </div>
+                        <div class="textboxes" id="pos1">
+                            15
+                        </div>
+                        <div class="textboxes" id="kill1">
+                            15
+                        </div>
+                        <div class="textboxes" id="total1">
+                            30
+                        </div>
+                    </div>
+                    <div class="leftpointboxes" id="leftpointbox8">
+
+                        <div class="textboxes teamnamesbox" id="teamname1">
+                            LONG TEAM NAME
+                        </div>
+                        <div class="textboxes" id="wwcd1">
+                            1
+                        </div>
+                        <div class="textboxes" id="pos1">
+                            15
+                        </div>
+                        <div class="textboxes" id="kill1">
+                            15
+                        </div>
+                        <div class="textboxes" id="total1">
+                            30
+                        </div>
+                    </div>
+                    <div class="leftpointboxes" id="leftpointbox9">
+
+                        <div class="textboxes teamnamesbox" id="teamname1">
+                            LONG TEAM NAME
+                        </div>
+                        <div class="textboxes" id="wwcd1">
+                            1
+                        </div>
+                        <div class="textboxes" id="pos1">
+                            15
+                        </div>
+                        <div class="textboxes" id="kill1">
+                            15
+                        </div>
+                        <div class="textboxes" id="total1">
+                            30
+                        </div>
+                    </div>
+                    <div class="leftpointboxes" id="leftpointbox10">
+
+                        <div class="textboxes teamnamesbox" id="teamname1">
+                            LONG TEAM NAME
+                        </div>
+                        <div class="textboxes" id="wwcd1">
+                            1
+                        </div>
+                        <div class="textboxes" id="pos1">
+                            15
+                        </div>
+                        <div class="textboxes" id="kill1">
+                            15
+                        </div>
+                        <div class="textboxes" id="total1">
+                            30
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <!-- <div class="footer">
                 Made By Someone...
             </div> -->
-<<<<<<< HEAD
-                    </div>
-                    <button class="btn btn4" type="button" onclick="downloadimage()"
-                        value="Click Here To Download">Click Here To
-                        Download</button>
-=======
         </div>
-        <button class="btn btn4" type="button" onclick="downloadimage()" value="Click Here To Download">Click Here To
-            Download</button>
->>>>>>> parent of cebf34c (Updated Title)
+
 </body>
 <!-- <script>
     let Points = []
