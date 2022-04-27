@@ -196,8 +196,7 @@ form {
   width: 30rem;
   height: 2rem;
   font-size: 0.85rem;
-  font-family: "Secular One",
-    sans-serif;
+  font-family: "Secular One",sans-serif;
   display: grid;
   grid-template-columns: 4fr 1fr 1fr 1fr 1.1fr;
 }
@@ -253,9 +252,14 @@ form {
   }
   .rightpointboxes{
     width: 20rem;
+    line-height: 1rem;
   }
   .leftpointboxes{
     width: 20rem;
+    line-height: 1rem;
+  }
+  .rightcontainer{
+    padding-top: 5px;
   }
 }
 .title{
@@ -266,4 +270,29 @@ form {
   text-shadow: 2px 1.5px 0px black,
   3.4px 2.5px 0px orangered;
   padding-bottom: 0.6rem;
+}
+#wwcdhead{
+  display: flex;
+}
+.lefthead img{
+  /* margin: auto; */
+  width: 27px;
+}
+.leftheadcontainer{
+  grid-template-columns: 1fr 4fr 1fr 1fr 1fr 1.1fr;
+}
+.leftcontainer{
+  display: grid;
+  grid-template-columns: auto 1fr;
+  grid-template-rows: auto;
+}
+.leftrankcontainer{
+  grid-column-start: 1;
+  grid-row-end: span 2;
+}
+.leftheadcontainer{
+  grid-column-start: span 3;
+}
+.leftholdcontainer{
+
 }
