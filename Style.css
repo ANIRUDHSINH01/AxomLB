@@ -12,9 +12,9 @@
   flex-direction: column;
   justify-content: center;
   align-items: center;
-  max-width: 80%;
+  max-width: 60%;
   max-height: 100%;
-  /* height: fit-content; */
+  height: fit-content;
   margin: 0rem auto;
   background-image: url("BG.png");
   background-size: cover;
@@ -225,7 +225,7 @@ form {
 /* .table_bg{
   border: 2px solid red;
 } */
-@media (min-width: 1880px) {
+@media (max-width: 1880px) {
   .table_bg {
     max-width: 62%;
   }
@@ -259,10 +259,10 @@ form {
     width: 100%;
   }
   .rightpointboxes{
-    width: 20rem;
+    width: 100%;
   }
   .leftpointboxes{
-    width: 20rem;
+    width: 100%;
   }
 }
 .title{
