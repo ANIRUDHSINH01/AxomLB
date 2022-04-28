@@ -376,3 +376,13 @@ form {
   align-self: center;
   justify-self: center;
 }
+.titlebox{
+  width: 90%;
+  position: relative;
+}
+#serverlogo{
+  width: 120px;
+  position: absolute;
+  left: 0rem;
+  top: 1rem;
+}

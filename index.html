@@ -56,16 +56,25 @@
             <button class="btn btn4" type="button" onclick="downloadimage()" value="Click Here To Download">Click Here
                 To
                 Download</button>
+            <button class="btn btn4" type="button" onclick="downloadimage()" value="Click Here To Download">Click Here
+                Change Color</button>
+            <input type="file" id="select_image" name="image" onchange="putImage()" />
         </div>
     </form>
     <div class="table_bg" id="downlb">
-        <div>
-            <h2 class="title subtitle" id="UpperTitle">
-                YOUR ORG NAME
-            </h2>
-            <h2 class="title" id="BigTitle">
-                TITLE HERE
-            </h2>
+        <div class="titlebox">
+            <img src="wwcd.svg" alt="LOGO HERE" id="serverlogo">
+            <!-- <div class="logo">
+            </div> -->
+            <div class="titless">
+
+                <h2 class="title subtitle" id="UpperTitle">
+                    YOUR ORG NAME
+                </h2>
+                <h2 class="title" id="BigTitle">
+                    TITLE HERE
+                </h2>
+            </div>
         </div>
         <div class="restable">
             <div class="leftcontainer">
@@ -608,6 +617,20 @@
             //         }
             //         document.forms[0].reset();
             //     }
+            function showImage(src, target) {
+                var fr = new FileReader();
+
+                fr.onload = function () {
+                    target.src = fr.result;
+                }
+                fr.readAsDataURL(src.files[0]);
+
+            }
+            function putImage() {
+                var src = document.getElementById("select_image");
+                var target = document.getElementById("serverlogo");
+                showImage(src, target);
+            }
             function changeTitles() {
                 let datas = document.getElementById('pts').value;
                 let spliteddatas = datas.split('\n');
