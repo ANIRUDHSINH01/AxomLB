@@ -56,8 +56,8 @@
             <button class="btn btn4" type="button" onclick="downloadimage()" value="Click Here To Download">Click Here
                 To
                 Download</button>
-            <button class="btn btn4" type="button" onclick="downloadimage()" value="Click Here To Download">Click Here
-                Change Color</button>
+            <!-- <button class="btn btn4" type="button" onclick="changetop10()" value="Click Here To Download">Change To
+                Top 10</button> -->
             <input type="file" id="select_image" name="image" onchange="putImage()" />
         </div>
     </form>
@@ -313,7 +313,10 @@
                     </div>
                 </div>
             </div>
-            <div class="rightcontainer">
+            <div id="haha">
+
+            </div>
+            <div class="rightcontainer" id="rightcont">
                 <div class="rightheadcontainer">
                     <div class="rightheadbox" id="rightheadhash">
                         #
@@ -550,7 +553,7 @@
                 </div>
             </div>
             <div class="footer">
-                Made By Arthish GFX, Compatible With Axom Bot
+
             </div>
 
             <!-- <div class="footer">
@@ -617,6 +620,13 @@
             //         }
             //         document.forms[0].reset();
             //     }
+            // function changetop10(somediv) {
+            //     const mane = document.getElementById('rightcont');
+            //     const origi = document.getElementById('haha');
+            //     const clone = origi.cloneNode(true);
+            //     origi.style.display = 'flex';
+            //     mane.replaceWith(origi);
+            // }
             function showImage(src, target) {
                 var fr = new FileReader();
 
