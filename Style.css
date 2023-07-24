@@ -7,6 +7,10 @@
   box-sizing: border-box;
   text-transform: uppercase;
 }
+#downlb{
+  font-family: "Secular One",sans-serif;
+  font-variant: normal;
+}
 .table_bg {
   display: flex;
   flex-direction: column;
@@ -16,7 +20,7 @@
   max-height: 100%;
   height: fit-content;
   margin: 0rem auto;
-  background-image: url("BG.png");
+  background-image: url("BG-2.png");
   background-size: cover;
 }
 
@@ -271,7 +275,7 @@ form {
   font-weight: 700;
   color: white;
   text-shadow: 2px 1.5px 0px black,
-  3.4px 2.5px 0px rgb(255, 123, 0);
+  3.4px 2.5px 0px #a4e722;
   padding-bottom: 0.6rem;
   text-align: center;
   letter-spacing: 0.2rem;
@@ -282,7 +286,7 @@ form {
   font-weight: 700;
   color: white;
   text-shadow: 2px 1.5px 0px black,
-  3.4px 2.5px 0px rgb(255, 123, 0);
+  3.4px 2.5px 0px #aaff00;
   /* padding-bottom: 0.6rem; */
   text-align: center;
   position: relative;
@@ -290,7 +294,7 @@ form {
   letter-spacing: 0.2rem;
 }
 .leftheadcontainer{
-  background-color: rgb(255, 153, 0);
+  background-color: #a4e722;
   margin-bottom: 0.2rem;
   height: 2rem;
   width: 100%;
@@ -322,7 +326,7 @@ form {
   width: 25px;
 }
 .rightheadcontainer{
-  background-color: rgb(255, 153, 0);
+  background-color: #a4e722;
   margin-bottom: 0.2rem;
   height: 2rem;
   width: 100%;
