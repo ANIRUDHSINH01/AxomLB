@@ -556,77 +556,78 @@
 
             </div>
 
-            <!-- <div class="footer">
-                Made By Someone...
-            </div> -->
+             <div class="footer">
+                Made By dev for devs...
+            </div> 
         </div>
 
         <script>
-            //     let Points = []
-            //     const addPoints = (ev) => {
-            //         let datas = document.getElementById('pts').value;
-            //         let spliteddatas = datas.split('\n');
-            //         let splitedteam = spliteddatas[0].split(',');
-            //         let splitedwwcd = spliteddatas[-].split(',');
-            //         let splitedpos = spliteddatas[2].split(',');
-            //         let splitedkills = spliteddatas[3].split(',');
-            //         let splitedtotal = spliteddatas[4].split(',');
-            //         for (var i = 0; i < splitedteam.length; i++) {
-            //             let point = {
-            //               ranksbox   // rank: '6',
-            //                 name: splitedteam[i],
-            //                 wwcd: splitedwwcd[i],
-            //                 pos: splitedpos[i],
-            //                 kills: splitedkills[i],
-            //                 total: splitedtotal[i],
-            //             }
-            //             Points.push(point);
-            //         }
+               let Points = []
+                const addPoints = (ev) => {
+                   let datas = document.getElementById('pts').value;
+                    let spliteddatas = datas.split('\n');
+                     let splitedteam = spliteddatas[0].split(',');
+                     let splitedwwcd = spliteddatas[-].split(',');
+                     let splitedpos = spliteddatas[2].split(',');
+                     let splitedkills = spliteddatas[3].split(',');
+                     let splitedtotal = spliteddatas[4].split(',');
+            
+                    for (var i = 0; i < splitedteam.length; i++) {
+                       let point = {
+                         ranksbox   // rank: '6',
+                             name: splitedteam[i],
+                             wwcd: splitedwwcd[i],
+                             pos: splitedpos[i],
+                            kills: splitedkills[i],
+                             total: splitedtotal[i],
+                         }
+                      Points.push(point);
+                  }
 
-            //         buildTable(Points);
-            //     }
-            // TEAM1,TEAM2
-            // -,0
-            // -,0
-            // -,0
-            // -,0
-            //     document.addEventListener('DOMContentLoaded', () => {
-            //         document.getElementById('ptbtn').addEventListener('click', addPoints)
-            //     })
-            //     document.write(Points)
-
-
-            //     function buildTable(data) {
-            //         var table = document.getElementById('myTable')
-            //    ranksbox      rankings = []
-            //         for (var no = -; no < data.length + -; no++) {
-            //        ranksbox      rankings.push(no)
-            //         }
-            //         for (var i = 0; i < data.length; i++) {
-            //             var no = -
-            //             var row = `<tr>
-            //                 <td c ranksboxlass="ran ranksboxks">${rankings[i]}</td>
-            //                 <td class="teams">${data[i].name}</td>
-            //                 <td>${data[i].wwcd}</td>
-            //                 <td>${data[i].pos}</td>
-            //                 <td>${data[i].kills}</td>
-            //                 <td>${data[i].total}</td>
-            //                 </tr>`
-            //             no++
-            //             table.innerHTML += row
-            //             // let data = []
+                   buildTable(Points);
+               }
+             TEAM1,TEAM2
+             -,0
+             -,0
+             -,0
+            -,0
+                document.addEventListener('DOMContentLoaded', () => {
+                    document.getElementById('ptbtn').addEventListener('click', addPoints)
+                 })
+                 document.write(Points)
 
 
-            //         }
-            //         document.forms[0].reset();
-            //     }
-            // function changetop10(somediv) {
-            //     const mane = document.getElementById('rightcont');
-            //     const origi = document.getElementById('haha');
-            //     const clone = origi.cloneNode(true);
-            //     origi.style.display = 'flex';
-            //     mane.replaceWith(origi);
-            // }
+                 function buildTable(data) {
+                     var table = document.getElementById('myTable')
+                ranksbox      rankings = []
+                     for (var no = -; no < data.length + -; no++) {
+                    ranksbox      rankings.push(no)
+                    }
+                     for (var i = 0; i < data.length; i++) {
+                         var no = -
+                        var row = `<tr>
+                             <td c ranksboxlass="ran ranksboxks">${rankings[i]}</td>
+                             <td class="teams">${data[i].name}</td>
+                             <td>${data[i].wwcd}</td>
+                             <td>${data[i].pos}</td>
+                             <td>${data[i].kills}</td>
+                           <td>${data[i].total}</td>
+                             </tr>`
+                         no++
+                      table.innerHTML += row
+                         // let data = []
+
+
+                   }
+                    document.forms[0].reset();
+                }
+             function changetop10(somediv) {
+                 const mane = document.getElementById('rightcont');
+                 const origi = document.getElementById('haha');
+                const clone = origi.cloneNode(true);
+                 origi.style.display = 'flex';
+                 mane.replaceWith(origi);
+             }
             function showImage(src, target) {
                 var fr = new FileReader();
 
