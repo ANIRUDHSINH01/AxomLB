@@ -11,16 +11,12 @@
     <script type="text/javascript">
 
         function downloadimage() {
-            var container = document.getElementById("downlb"); //specific element on page
-            // var container = document.getElementById("htmltoimage");; // full page 
+            var container = document.getElementById("downlb");
             html2canvas(container, {
                 allowTaint: true,
                 windowWidth: 1880,
                 scale: 2,
-                // width: 1920,
-                // windowHeight: 550
             }).then(function (canvas) {
-
                 var link = document.createElement("a");
                 document.body.appendChild(link);
                 link.download = "Leaderboard.jpg";
@@ -30,642 +26,253 @@
             });
         }
 
+        let Points = [];
+        const addPoints = (ev) => {
+            let datas = document.getElementById('pts').value;
+            let spliteddatas = datas.split('\n');
+            let splitedteam = spliteddatas[0].split(',');
+            let splitedwwcd = spliteddatas[1].split(',');
+            let splitedpos = spliteddatas[2].split(',');
+            let splitedkills = spliteddatas[3].split(',');
+            let splitedtotal = spliteddatas[4].split(',');
+
+            for (var i = 0; i < splitedteam.length; i++) {
+                let point = {
+                    rank: i + 1,
+                    name: splitedteam[i],
+                    wwcd: splitedwwcd[i],
+                    pos: splitedpos[i],
+                    kills: splitedkills[i],
+                    total: splitedtotal[i],
+                }
+                Points.push(point);
+            }
+
+            buildTable(Points);
+        }
+
+        document.addEventListener('DOMContentLoaded', () => {
+            document.getElementById('ptbtn').addEventListener('click', addPoints)
+        });
+
+        function buildTable(data) {
+            var table = document.getElementById('myTable');
+            table.innerHTML = "";
+            for (var i = 0; i < data.length; i++) {
+                var row = `<tr>
+                    <td class="ranks">${data[i].rank}</td>
+                    <td class="teams">${data[i].name}</td>
+                    <td>${data[i].wwcd}</td>
+                    <td>${data[i].pos}</td>
+                    <td>${data[i].kills}</td>
+                    <td>${data[i].total}</td>
+                </tr>`;
+                table.innerHTML += row;
+            }
+            document.forms[0].reset();
+        }
+
+        function changetop10() {
+            const mane = document.getElementById('rightcont');
+            const origi = document.getElementById('haha');
+            const clone = origi.cloneNode(true);
+            origi.style.display = 'flex';
+            mane.replaceWith(clone);
+        }
+
+        function showImage(src, target) {
+            var fr = new FileReader();
+            fr.onload = function () {
+                target.src = fr.result;
+            }
+            fr.readAsDataURL(src.files[0]);
+        }
+
+        function putImage() {
+            var src = document.getElementById("select_image");
+            var target = document.getElementById("serverlogo");
+            showImage(src, target);
+        }
+
+        function changeTitles() {
+            let datas = document.getElementById('pts').value;
+            let spliteddatas = datas.split('\n');
+            let splitedteam = spliteddatas[0].split(',');
+            let splitedwwcd = spliteddatas[1].split(',');
+            let splitedpos = spliteddatas[2].split(',');
+            let splitedkills = spliteddatas[3].split(',');
+            let splitedtotal = spliteddatas[4].split(',');
+            for (var i = 0; i < splitedteam.length; i++) {
+                document.getElementById(`teamname${i + 1}`).innerHTML = splitedteam[i];
+                document.getElementById(`wwcd${i + 1}`).innerHTML = splitedwwcd[i];
+                document.getElementById(`pos${i + 1}`).innerHTML = splitedpos[i];
+                document.getElementById(`kill${i + 1}`).innerHTML = splitedkills[i];
+                document.getElementById(`total${i + 1}`).innerHTML = splitedtotal[i];
+            }
+            document.getElementById('UpperTitle').innerHTML = document.getElementById('Subtitle').value;
+            document.getElementById('BigTitle').innerHTML = document.getElementById('Title').value;
+        }
+
     </script>
 </head>
 
 <body>
     <form action="">
-
         <div class="formbox">
             <div class="inputsdiv">
                 <div class="titlediv">
-
-                    <label for="HeadinT">SubTitle </label>
-                    <input type="text" id="Subtitle" value="SubTitle" placeholder="Enter Subtile Here">
-                    <label for="HeadinS">Title</label>
+                    <label for="Subtitle">SubTitle </label>
+                    <input type="text" id="Subtitle" value="SubTitle" placeholder="Enter Subtitle Here">
+                    <label for="Title">Title</label>
                     <input type="text" id="Title" value="Title" placeholder="Enter Title Here">
                 </div>
                 <div class="pointsdiv">
-
-                    <label for="ptss">Points Here</label>
-                    <textarea name="message" id="pts" cols="-" rows="4" placeholder="Enter Points Here"></textarea>
+                    <label for="pts">Points Here</label>
+                    <textarea name="message" id="pts" cols="30" rows="4" placeholder="Enter Points Here"></textarea>
                 </div>
             </div>
-            <button class="btn btn4" type="button" id="ptbtn" onclick="changeTitles()">Click
-                Here</button>
-            <button class="btn btn4" type="button" onclick="downloadimage()" value="Click Here To Download">Click Here
-                To
-                Download</button>
-            <!-- <button class="btn btn4" type="button" onclick="changetop10()" value="Click Here To Download">Change To
-                Top 10</button> -->
+            <button class="btn btn4" type="button" id="ptbtn">Click Here</button>
+            <button class="btn btn4" type="button" onclick="downloadimage()">Click Here To Download</button>
             <input type="file" id="select_image" name="image" onchange="putImage()" />
         </div>
     </form>
     <div class="table_bg" id="downlb">
         <div class="titlebox">
             <img src="" alt="LOGO HERE" id="serverlogo">
-            <!-- <div class="logo">
-            </div> -->
             <div class="titless">
-
-                <h2 class="title subtitle" id="UpperTitle">
-                    YOUR ORG NAME
-                </h2>
-                <h2 class="title" id="BigTitle">
-                    TITLE HERE
-                </h2>
+                <h2 class="title subtitle" id="UpperTitle">YOUR ORG NAME</h2>
+                <h2 class="title" id="BigTitle">TITLE HERE</h2>
             </div>
         </div>
         <div class="restable">
             <div class="leftcontainer">
                 <div class="leftheadcontainer">
-                    <div class="leftheadbox" id="leftheadhash">
-                        #
-                    </div>
-                    <div class="leftheadbox">
-                        TEAMNAMES
-                    </div>
-                    <div class="leftheadbox" id="leftheadwwcd">
-                        <img src="wwcd.svg" alt="WWCD">
-                    </div>
-                    <div class="leftheadbox">
-                        POS
-                    </div>
-                    <div class="leftheadbox">
-                        KILLS
-                    </div>
-                    <div class="leftheadbox">
-                        TOTAL
-                    </div>
+                    <div class="leftheadbox" id="leftheadhash">#</div>
+                    <div class="leftheadbox">TEAMNAMES</div>
+                    <div class="leftheadbox" id="leftheadwwcd"><img src="wwcd.svg" alt="WWCD"></div>
+                    <div class="leftheadbox">POS</div>
+                    <div class="leftheadbox">KILLS</div>
+                    <div class="leftheadbox">TOTAL</div>
                 </div>
                 <div class="leftrankcontainer">
-                    <div class="textboxes ranksbox" id="rank1">
-                        1
-                    </div>
-                    <div class="textboxes ranksbox" id="rank1">
-                        2
-                    </div>
-                    <div class="textboxes ranksbox" id="rank1">
-                        3
-                    </div>
-                    <div class="textboxes ranksbox" id="rank1">
-                        4
-                    </div>
-                    <div class="textboxes ranksbox" id="rank1">
-                        5
-                    </div>
-                    <div class="textboxes ranksbox" id="rank1">
-                        6
-                    </div>
-                    <div class="textboxes ranksbox" id="rank1">
-                        7
-                    </div>
-                    <div class="textboxes ranksbox" id="rank1">
-                        8
-                    </div>
-                    <div class="textboxes ranksbox" id="rank1">
-                        9
-                    </div>
-                    <div class="textboxes ranksbox" id="rank1">
-                        10
-                    </div>
+                    <div class="textboxes ranksbox">1</div>
+                    <div class="textboxes ranksbox">2</div>
+                    <div class="textboxes ranksbox">3</div>
+                    <div class="textboxes ranksbox">4</div>
+                    <div class="textboxes ranksbox">5</div>
+                    <div class="textboxes ranksbox">6</div>
+                    <div class="textboxes ranksbox">7</div>
+                    <div class="textboxes ranksbox">8</div>
+                    <div class="textboxes ranksbox">9</div>
+                    <div class="textboxes ranksbox">10</div>
                 </div>
-                <div class="leftholdcontainer">
-                    <div class="leftpointboxes" id="leftpointbox1">
-
-                        <div class="textboxes teamnamesbox" id="teamname1">
-
-                        </div>
-                        <div class="textboxes" id="wwcd1">
-
-                        </div>
-                        <div class="textboxes" id="pos1">
-
-                        </div>
-                        <div class="textboxes" id="kill1">
-
-                        </div>
-                        <div class="textboxes" id="total1">
-
-                        </div>
-                    </div>
-                    <div class="leftpointboxes" id="leftpointbox2">
-
-                        <div class="textboxes teamnamesbox" id="teamname2">
-
-                        </div>
-                        <div class="textboxes" id="wwcd2">
-
-                        </div>
-                        <div class="textboxes" id="pos2">
-
-                        </div>
-                        <div class="textboxes" id="kill2">
-
-                        </div>
-                        <div class="textboxes" id="total2">
-
-                        </div>
-                    </div>
-                    <div class="leftpointboxes" id="leftpointbox3">
-
-                        <div class="textboxes teamnamesbox" id="teamname3">
-
-                        </div>
-                        <div class="textboxes" id="wwcd3">
-
-                        </div>
-                        <div class="textboxes" id="pos3">
-
-                        </div>
-                        <div class="textboxes" id="kill3">
-
-                        </div>
-                        <div class="textboxes" id="total3">
-
-                        </div>
-                    </div>
-                    <div class="leftpointboxes" id="leftpointbox4">
-
-                        <div class="textboxes teamnamesbox" id="teamname4">
-
-                        </div>
-                        <div class="textboxes" id="wwcd4">
-
-                        </div>
-                        <div class="textboxes" id="pos4">
-
-                        </div>
-                        <div class="textboxes" id="kill4">
-
-                        </div>
-                        <div class="textboxes" id="total4">
-
-                        </div>
-                    </div>
-                    <div class="leftpointboxes" id="leftpointbox5">
-
-                        <div class="textboxes teamnamesbox" id="teamname5">
-
-                        </div>
-                        <div class="textboxes" id="wwcd5">
-
-                        </div>
-                        <div class="textboxes" id="pos5">
-
-                        </div>
-                        <div class="textboxes" id="kill5">
-
-                        </div>
-                        <div class="textboxes" id="total5">
-
-                        </div>
-                    </div>
-                    <div class="leftpointboxes" id="leftpointbox6">
-
-                        <div class="textboxes teamnamesbox" id="teamname6">
-
-                        </div>
-                        <div class="textboxes" id="wwcd6">
-
-                        </div>
-                        <div class="textboxes" id="pos6">
-
-                        </div>
-                        <div class="textboxes" id="kill6">
-
-                        </div>
-                        <div class="textboxes" id="total6">
-
-                        </div>
-                    </div>
-                    <div class="leftpointboxes" id="leftpointbox7">
-
-                        <div class="textboxes teamnamesbox" id="teamname7">
-
-                        </div>
-                        <div class="textboxes" id="wwcd7">
-
-                        </div>
-                        <div class="textboxes" id="pos7">
-
-                        </div>
-                        <div class="textboxes" id="kill7">
-
-                        </div>
-                        <div class="textboxes" id="total7">
-
-                        </div>
-                    </div>
-                    <div class="leftpointboxes" id="leftpointbox8">
-
-                        <div class="textboxes teamnamesbox" id="teamname8">
-
-                        </div>
-                        <div class="textboxes" id="wwcd8">
-
-                        </div>
-                        <div class="textboxes" id="pos8">
-
-                        </div>
-                        <div class="textboxes" id="kill8">
-
-                        </div>
-                        <div class="textboxes" id="total8">
-
-                        </div>
-                    </div>
-                    <div class="leftpointboxes" id="leftpointbox9">
-
-                        <div class="textboxes teamnamesbox" id="teamname9">
-
-                        </div>
-                        <div class="textboxes" id="wwcd9">
-
-                        </div>
-                        <div class="textboxes" id="pos9">
-
-                        </div>
-                        <div class="textboxes" id="kill9">
-
-                        </div>
-                        <div class="textboxes" id="total9">
-
-                        </div>
-                    </div>
-                    <div class="leftpointboxes" id="leftpointbox10">
-
-                        <div class="textboxes teamnamesbox" id="teamname10">
-
-                        </div>
-                        <div class="textboxes" id="wwcd10">
-
-                        </div>
-                        <div class="textboxes" id="pos10">
-
-                        </div>
-                        <div class="textboxes" id="kill10">
-
-                        </div>
-                        <div class="textboxes" id="total10">
-
-                        </div>
-                    </div>
+                <div class="leftholdcontainer" id="myTable">
+                    <!-- Points will be appended here -->
                 </div>
             </div>
-            <div id="haha">
-
-            </div>
+            <div id="haha"></div>
             <div class="rightcontainer" id="rightcont">
                 <div class="rightheadcontainer">
-                    <div class="rightheadbox" id="rightheadhash">
-                        #
-                    </div>
-                    <div class="rightheadbox">
-                        TEAMNAMES
-                    </div>
-                    <div class="rightheadbox" id="rightheadwwcd">
-                        <img src="wwcd.svg" alt="WWCD">
-                    </div>
-                    <div class="rightheadbox">
-                        POS
-                    </div>
-                    <div class="rightheadbox">
-                        KILLS
-                    </div>
-                    <div class="rightheadbox">
-                        TOTAL
-                    </div>
+                    <div class="rightheadbox" id="rightheadhash">#</div>
+                    <div class="rightheadbox">TEAMNAMES</div>
+                    <div class="rightheadbox" id="rightheadwwcd"><img src="wwcd.svg" alt="WWCD"></div>
+                    <div class="rightheadbox">POS</div>
+                    <div class="rightheadbox">KILLS</div>
+                    <div class="rightheadbox">TOTAL</div>
                 </div>
                 <div class="rightrankcontainer">
-                    <div class="textboxes ranksbox" id="rank1">
-                        11
-                    </div>
-                    <div class="textboxes ranksbox" id="rank1">
-                        12
-                    </div>
-                    <div class="textboxes ranksbox" id="rank1">
-                        13
-                    </div>
-                    <div class="textboxes ranksbox" id="rank1">
-                        14
-                    </div>
-                    <div class="textboxes ranksbox" id="rank1">
-                        15
-                    </div>
-                    <div class="textboxes ranksbox" id="rank1">
-                        16
-                    </div>
-                    <div class="textboxes ranksbox" id="rank1">
-                        17
-                    </div>
-                    <div class="textboxes ranksbox" id="rank1">
-                        18
-                    </div>
-                    <div class="textboxes ranksbox" id="rank1">
-                        19
-                    </div>
-                    <div class="textboxes ranksbox" id="rank1">
-                        20
-                    </div>
+                    <div class="textboxes ranksbox">11</div>
+                    <div class="textboxes ranksbox">12</div>
+                    <div class="textboxes ranksbox">13</div>
+                    <div class="textboxes ranksbox">14</div>
+                    <div class="textboxes ranksbox">15</div>
+                    <div class="textboxes ranksbox">16</div>
+                    <div class="textboxes ranksbox">17</div>
+                    <div class="textboxes ranksbox">18</div>
+                    <div class="textboxes ranksbox">19</div>
+                    <div class="textboxes ranksbox">20</div>
                 </div>
                 <div class="rightholdcontainer">
-                    <div class="rightpointboxes" id="rightpointbox1">
-
-                        <div class="textboxes teamnamesbox" id="teamname11">
-
-                        </div>
-                        <div class="textboxes" id="wwcd11">
-
-                        </div>
-                        <div class="textboxes" id="pos11">
-
-                        </div>
-                        <div class="textboxes" id="kill11">
-
-                        </div>
-                        <div class="textboxes" id="total11">
-
-                        </div>
+                    <div class="rightpointboxes">
+                        <div class="textboxes teamnamesbox" id="teamname11"></div>
+                        <div class="textboxes" id="wwcd11"></div>
+                        <div class="textboxes" id="pos11"></div>
+                        <div class="textboxes" id="kill11"></div>
+                        <div class="textboxes" id="total11"></div>
                     </div>
-                    <div class="rightpointboxes" id="rightpointbox2">
-
-                        <div class="textboxes teamnamesbox" id="teamname12">
-
-                        </div>
-                        <div class="textboxes" id="wwcd12">
-
-                        </div>
-                        <div class="textboxes" id="pos12">
-
-                        </div>
-                        <div class="textboxes" id="kill12">
-
-                        </div>
-                        <div class="textboxes" id="total12">
-
-                        </div>
+                    <div class="rightpointboxes">
+                        <div class="textboxes teamnamesbox" id="teamname12"></div>
+                        <div class="textboxes" id="wwcd12"></div>
+                        <div class="textboxes" id="pos12"></div>
+                        <div class="textboxes" id="kill12"></div>
+                        <div class="textboxes" id="total12"></div>
                     </div>
-                    <div class="rightpointboxes" id="rightpointbox3">
-
-                        <div class="textboxes teamnamesbox" id="teamname13">
-
-                        </div>
-                        <div class="textboxes" id="wwcd13">
-
-                        </div>
-                        <div class="textboxes" id="pos13">
-
-                        </div>
-                        <div class="textboxes" id="kill13">
-
-                        </div>
-                        <div class="textboxes" id="total13">
-
-                        </div>
+                    <div class="rightpointboxes">
+                        <div class="textboxes teamnamesbox" id="teamname13"></div>
+                        <div class="textboxes" id="wwcd13"></div>
+                        <div class="textboxes" id="pos13"></div>
+                        <div class="textboxes" id="kill13"></div>
+                        <div class="textboxes" id="total13"></div>
                     </div>
-                    <div class="rightpointboxes" id="rightpointbox4">
-
-                        <div class="textboxes teamnamesbox" id="teamname14">
-
-                        </div>
-                        <div class="textboxes" id="wwcd14">
-
-                        </div>
-                        <div class="textboxes" id="pos14">
-
-                        </div>
-                        <div class="textboxes" id="kill14">
-
-                        </div>
-                        <div class="textboxes" id="total14">
-
-                        </div>
+                    <div class="rightpointboxes">
+                        <div class="textboxes teamnamesbox" id="teamname14"></div>
+                        <div class="textboxes" id="wwcd14"></div>
+                        <div class="textboxes" id="pos14"></div>
+                        <div class="textboxes" id="kill14"></div>
+                        <div class="textboxes" id="total14"></div>
                     </div>
-                    <div class="rightpointboxes" id="rightpointbox5">
-
-                        <div class="textboxes teamnamesbox" id="teamname15">
-
-                        </div>
-                        <div class="textboxes" id="wwcd15">
-
-                        </div>
-                        <div class="textboxes" id="pos15">
-
-                        </div>
-                        <div class="textboxes" id="kill15">
-
-                        </div>
-                        <div class="textboxes" id="total15">
-
-                        </div>
+                    <div class="rightpointboxes">
+                        <div class="textboxes teamnamesbox" id="teamname15"></div>
+                        <div class="textboxes" id="wwcd15"></div>
+                        <div class="textboxes" id="pos15"></div>
+                        <div class="textboxes" id="kill15"></div>
+                        <div class="textboxes" id="total15"></div>
                     </div>
-                    <div class="rightpointboxes" id="rightpointbox6">
-
-                        <div class="textboxes teamnamesbox" id="teamname16">
-
-                        </div>
-                        <div class="textboxes" id="wwcd16">
-
-                        </div>
-                        <div class="textboxes" id="pos16">
-
-                        </div>
-                        <div class="textboxes" id="kill16">
-
-                        </div>
-                        <div class="textboxes" id="total16">
-
-                        </div>
+                    <div class="rightpointboxes">
+                        <div class="textboxes teamnamesbox" id="teamname16"></div>
+                        <div class="textboxes" id="wwcd16"></div>
+                        <div class="textboxes" id="pos16"></div>
+                        <div class="textboxes" id="kill16"></div>
+                        <div class="textboxes" id="total16"></div>
                     </div>
-                    <div class="rightpointboxes" id="rightpointbox7">
-
-                        <div class="textboxes teamnamesbox" id="teamname17">
-
-                        </div>
-                        <div class="textboxes" id="wwcd17">
-
-                        </div>
-                        <div class="textboxes" id="pos17">
-
-                        </div>
-                        <div class="textboxes" id="kill17">
-
-                        </div>
-                        <div class="textboxes" id="total17">
-
-                        </div>
+                    <div class="rightpointboxes">
+                        <div class="textboxes teamnamesbox" id="teamname17"></div>
+                        <div class="textboxes" id="wwcd17"></div>
+                        <div class="textboxes" id="pos17"></div>
+                        <div class="textboxes" id="kill17"></div>
+                        <div class="textboxes" id="total17"></div>
                     </div>
-                    <div class="rightpointboxes" id="rightpointbox8">
-
-                        <div class="textboxes teamnamesbox" id="teamname18">
-
-                        </div>
-                        <div class="textboxes" id="wwcd18">
-
-                        </div>
-                        <div class="textboxes" id="pos18">
-
-                        </div>
-                        <div class="textboxes" id="kill18">
-
-                        </div>
-                        <div class="textboxes" id="total18">
-
-                        </div>
+                    <div class="rightpointboxes">
+                        <div class="textboxes teamnamesbox" id="teamname18"></div>
+                        <div class="textboxes" id="wwcd18"></div>
+                        <div class="textboxes" id="pos18"></div>
+                        <div class="textboxes" id="kill18"></div>
+                        <div class="textboxes" id="total18"></div>
                     </div>
-                    <div class="rightpointboxes" id="rightpointbox9">
-
-                        <div class="textboxes teamnamesbox" id="teamname19">
-
-                        </div>
-                        <div class="textboxes" id="wwcd19">
-
-                        </div>
-                        <div class="textboxes" id="pos19">
-
-                        </div>
-                        <div class="textboxes" id="kill19">
-
-                        </div>
-                        <div class="textboxes" id="total19">
-
-                        </div>
+                    <div class="rightpointboxes">
+                        <div class="textboxes teamnamesbox" id="teamname19"></div>
+                        <div class="textboxes" id="wwcd19"></div>
+                        <div class="textboxes" id="pos19"></div>
+                        <div class="textboxes" id="kill19"></div>
+                        <div class="textboxes" id="total19"></div>
                     </div>
-                    <div class="rightpointboxes" id="rightpointbox10">
-
-                        <div class="textboxes teamnamesbox" id="teamname20">
-
-                        </div>
-                        <div class="textboxes" id="wwcd20">
-
-                        </div>
-                        <div class="textboxes" id="pos20">
-
-                        </div>
-                        <div class="textboxes" id="kill20">
-
-                        </div>
-                        <div class="textboxes" id="total20">
-
-                        </div>
+                    <div class="rightpointboxes">
+                        <div class="textboxes teamnamesbox" id="teamname20"></div>
+                        <div class="textboxes" id="wwcd20"></div>
+                        <div class="textboxes" id="pos20"></div>
+                        <div class="textboxes" id="kill20"></div>
+                        <div class="textboxes" id="total20"></div>
                     </div>
                 </div>
             </div>
             <div class="footer">
-
-            </div>
-
-             <div class="footer">
                 Made By dev for devs...
-            </div> 
+            </div>
         </div>
-
-        <script>
-               let Points = []
-                const addPoints = (ev) => {
-                   let datas = document.getElementById('pts').value;
-                    let spliteddatas = datas.split('\n');
-                     let splitedteam = spliteddatas[0].split(',');
-                     let splitedwwcd = spliteddatas[-].split(',');
-                     let splitedpos = spliteddatas[2].split(',');
-                     let splitedkills = spliteddatas[3].split(',');
-                     let splitedtotal = spliteddatas[4].split(',');
-            
-                    for (var i = 0; i < splitedteam.length; i++) {
-                       let point = {
-                         ranksbox   // rank: '6',
-                             name: splitedteam[i],
-                             wwcd: splitedwwcd[i],
-                             pos: splitedpos[i],
-                            kills: splitedkills[i],
-                             total: splitedtotal[i],
-                         }
-                      Points.push(point);
-                  }
-
-                   buildTable(Points);
-               }
-             TEAM1,TEAM2
-             -,0
-             -,0
-             -,0
-            -,0
-                document.addEventListener('DOMContentLoaded', () => {
-                    document.getElementById('ptbtn').addEventListener('click', addPoints)
-                 })
-                 document.write(Points)
-
-
-                 function buildTable(data) {
-                     var table = document.getElementById('myTable')
-                ranksbox      rankings = []
-                     for (var no = -; no < data.length + -; no++) {
-                    ranksbox      rankings.push(no)
-                    }
-                     for (var i = 0; i < data.length; i++) {
-                         var no = -
-                        var row = `<tr>
-                             <td c ranksboxlass="ran ranksboxks">${rankings[i]}</td>
-                             <td class="teams">${data[i].name}</td>
-                             <td>${data[i].wwcd}</td>
-                             <td>${data[i].pos}</td>
-                             <td>${data[i].kills}</td>
-                           <td>${data[i].total}</td>
-                             </tr>`
-                         no++
-                      table.innerHTML += row
-                         // let data = []
-
-
-                   }
-                    document.forms[0].reset();
-                }
-             function changetop10(somediv) {
-                 const mane = document.getElementById('rightcont');
-                 const origi = document.getElementById('haha');
-                const clone = origi.cloneNode(true);
-                 origi.style.display = 'flex';
-                 mane.replaceWith(origi);
-             }
-            function showImage(src, target) {
-                var fr = new FileReader();
-
-                fr.onload = function () {
-                    target.src = fr.result;
-                }
-                fr.readAsDataURL(src.files[0]);
-
-            }
-            function putImage() {
-                var src = document.getElementById("select_image");
-                var target = document.getElementById("serverlogo");
-                showImage(src, target);
-            }
-            function changeTitles() {
-                let datas = document.getElementById('pts').value;
-                let spliteddatas = datas.split('\n');
-                let splitedteam = spliteddatas[0].split(',');
-                let splitedwwcd = spliteddatas[1].split(',');
-                let splitedpos = spliteddatas[2].split(',');
-                let splitedkills = spliteddatas[3].split(',');
-                let splitedtotal = spliteddatas[4].split(',');
-                for (var i = 0; i < splitedteam.length; i++) {
-                    document.getElementById(`teamname${i + 1}`).innerHTML = splitedteam[i];
-                    document.getElementById(`wwcd${i + 1}`).innerHTML = splitedwwcd[i];
-                    document.getElementById(`pos${i + 1}`).innerHTML = splitedpos[i];
-                    document.getElementById(`kill${i + 1}`).innerHTML = splitedkills[i];
-                    document.getElementById(`total${i + 1}`).innerHTML = splitedtotal[i];
-                }
-                document.getElementById('UpperTitle').innerHTML = document.getElementById('Subtitle').value;
-                document.getElementById('BigTitle').innerHTML = document.getElementById('Title').value;
-                // document.getElementById('teamname1').innerHTML = document.getElementById('Title').value;
-
-                // document.getElementById('downtitle').innerHTML = getElementById('Title').value;
-                // document.forms[0].reset();
-            }
-
-        </script>
+    </div>
 </body>
 
 </html>
+```
+
+Replace your existing `index.html` file with the content above. This should resolve the script errors and ensure the functionality works as intended.
