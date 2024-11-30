@@ -9,111 +9,54 @@
     <link rel="stylesheet" href="Style.css">
     <script src="https://html2canvas.hertzen.com/dist/html2canvas.js"></script>
     <script type="text/javascript">
+    let Points = [];
 
-        function downloadimage() {
-            var container = document.getElementById("downlb");
-            html2canvas(container, {
-                allowTaint: true,
-                windowWidth: 1880,
-                scale: 2,
-            }).then(function (canvas) {
-                var link = document.createElement("a");
-                document.body.appendChild(link);
-                link.download = "Leaderboard.jpg";
-                link.href = canvas.toDataURL();
-                link.target = '_blank';
-                link.click();
-            });
-        }
+    const addPoints = (ev) => {
+        Points = []; // Reset Points array before adding new points
+        let datas = document.getElementById('pts').value;
+        let spliteddatas = datas.split('\n');
+        let splitedteam = spliteddatas[0].split(',');
+        let splitedwwcd = spliteddatas[1].split(',');
+        let splitedpos = spliteddatas[2].split(',');
+        let splitedkills = spliteddatas[3].split(',');
+        let splitedtotal = spliteddatas[4].split(',');
 
-        let Points = [];
-        const addPoints = (ev) => {
-            let datas = document.getElementById('pts').value;
-            let spliteddatas = datas.split('\n');
-            let splitedteam = spliteddatas[0].split(',');
-            let splitedwwcd = spliteddatas[1].split(',');
-            let splitedpos = spliteddatas[2].split(',');
-            let splitedkills = spliteddatas[3].split(',');
-            let splitedtotal = spliteddatas[4].split(',');
-
-            for (var i = 0; i < splitedteam.length; i++) {
-                let point = {
-                    rank: i + 1,
-                    name: splitedteam[i],
-                    wwcd: splitedwwcd[i],
-                    pos: splitedpos[i],
-                    kills: splitedkills[i],
-                    total: splitedtotal[i],
-                }
-                Points.push(point);
+        for (var i = 0; i < splitedteam.length; i++) {
+            let point = {
+                rank: i + 1,
+                name: splitedteam[i],
+                wwcd: splitedwwcd[i],
+                pos: splitedpos[i],
+                kills: splitedkills[i],
+                total: splitedtotal[i],
             }
-
-            buildTable(Points);
+            Points.push(point);
         }
 
-        document.addEventListener('DOMContentLoaded', () => {
-            document.getElementById('ptbtn').addEventListener('click', addPoints)
-        });
+        buildTable(Points);
+    }
 
-        function buildTable(data) {
-            var table = document.getElementById('myTable');
-            table.innerHTML = "";
-            for (var i = 0; i < data.length; i++) {
-                var row = `<tr>
-                    <td class="ranks">${data[i].rank}</td>
-                    <td class="teams">${data[i].name}</td>
-                    <td>${data[i].wwcd}</td>
-                    <td>${data[i].pos}</td>
-                    <td>${data[i].kills}</td>
-                    <td>${data[i].total}</td>
-                </tr>`;
-                table.innerHTML += row;
-            }
-            document.forms[0].reset();
+    document.addEventListener('DOMContentLoaded', () => {
+        document.getElementById('ptbtn').addEventListener('click', addPoints)
+    });
+
+    function buildTable(data) {
+        var table = document.getElementById('myTable');
+        table.innerHTML = "";
+        for (var i = 0; i < data.length; i++) {
+            var row = `<tr>
+                <td class="ranks">${data[i].rank}</td>
+                <td class="teams">${data[i].name}</td>
+                <td>${data[i].wwcd}</td>
+                <td>${data[i].pos}</td>
+                <td>${data[i].kills}</td>
+                <td>${data[i].total}</td>
+            </tr>`;
+            table.innerHTML += row;
         }
-
-        function changetop10() {
-            const mane = document.getElementById('rightcont');
-            const origi = document.getElementById('haha');
-            const clone = origi.cloneNode(true);
-            origi.style.display = 'flex';
-            mane.replaceWith(clone);
-        }
-
-        function showImage(src, target) {
-            var fr = new FileReader();
-            fr.onload = function () {
-                target.src = fr.result;
-            }
-            fr.readAsDataURL(src.files[0]);
-        }
-
-        function putImage() {
-            var src = document.getElementById("select_image");
-            var target = document.getElementById("serverlogo");
-            showImage(src, target);
-        }
-
-        function changeTitles() {
-            let datas = document.getElementById('pts').value;
-            let spliteddatas = datas.split('\n');
-            let splitedteam = spliteddatas[0].split(',');
-            let splitedwwcd = spliteddatas[1].split(',');
-            let splitedpos = spliteddatas[2].split(',');
-            let splitedkills = spliteddatas[3].split(',');
-            let splitedtotal = spliteddatas[4].split(',');
-            for (var i = 0; i < splitedteam.length; i++) {
-                document.getElementById(`teamname${i + 1}`).innerHTML = splitedteam[i];
-                document.getElementById(`wwcd${i + 1}`).innerHTML = splitedwwcd[i];
-                document.getElementById(`pos${i + 1}`).innerHTML = splitedpos[i];
-                document.getElementById(`kill${i + 1}`).innerHTML = splitedkills[i];
-                document.getElementById(`total${i + 1}`).innerHTML = splitedtotal[i];
-            }
-            document.getElementById('UpperTitle').innerHTML = document.getElementById('Subtitle').value;
-            document.getElementById('BigTitle').innerHTML = document.getElementById('Title').value;
-        }
-
-    </script>
+        document.forms[0].reset();
+    }
+             </script>
 </head>
 
 <body>
